@@ -27,7 +27,7 @@ class KNNClassifier:
     def predict(self, texts: List[str]) -> Tuple[np.ndarray, List[Dict]]:
         
         results = self.retriever.search(texts, k=self.k)
-        
+    
         predictions = []
         neighbor_info = []
         

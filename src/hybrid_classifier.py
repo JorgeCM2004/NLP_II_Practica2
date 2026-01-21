@@ -23,7 +23,7 @@ class HybridClassifier:
         else:
             self.device = device
         
-        #self.teacher_model.to(self.device)
+        self.teacher_model.to(self.device)
         self.teacher_model.eval()
         
         self.num_classes = knn_classifier.num_classes
@@ -86,7 +86,6 @@ class HybridClassifier:
         
         p_knn = self.knn_classifier.predict_proba(texts)
         
-        # Combine: p_comb = α * pT + (1 - α) * pK
         p_combined = self.alpha * p_transformer + (1 - self.alpha) * p_knn
         
         return p_combined
@@ -128,7 +127,6 @@ class HybridClassifier:
         return results
     
     def get_params(self) -> Dict[str, Any]:
-        """Get classifier parameters."""
         return {
             "alpha": self.alpha,
             "k": self.knn_classifier.k,

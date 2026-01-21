@@ -1,11 +1,3 @@
-"""
-SummarizationExplainer Module - Generates explanations using abstractive summarization.
-
-This module provides the SummarizationExplainer class for generating:
-- Global class summaries
-- Local neighbor-based explanations
-"""
-
 from typing import List, Dict, Any, Optional
 
 import torch
